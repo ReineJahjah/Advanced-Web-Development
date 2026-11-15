@@ -1,39 +1,88 @@
 
-import { Header } from "./components/Header";
 import { CourseCard } from "./components/CourseCard";
+import { Layout } from "./components/Layout";
+import { CourseList } from "./components/CourseList";
+import { Stats } from "./components/Stats";
+
 import { courses } from "./data/courses";
 import type { Course } from "./types";
 
-// Empty array to test the empty-state condition
-export const courses2: Course[] = [];
+// Empty array for testing the empty state
+const courses2: Course[] = [];
 
 export default function App() {
-  return (
-    <>
-      <Header title="CampusHub" />
-      <main>
-        {/* TASK 2: Manually created CourseCards */}
-        <h2>Task 2 - Static Course Cards</h2>
+    return (
+        <Layout title="CampusHub">
 
-        <CourseCard code="CS301" title="Advanced Web Technologies" credits={5} 
-          instructor="Dr. Haidar" level="Advanced" />
-        <CourseCard code="CS205" title="Databases"/>
+            {/* TASK 2: Static CourseCards */}
+            <section>
+                <h2>Task 2 - Static Course Cards</h2>
 
-        {/* TASK 3: Render courses using map() */}
-        <h2>Task 3 - Course List</h2>
-        {courses.length === 0 ? (<p className="empty">No courses published yet.</p>) : 
-          (<div className="list">
-              {courses.map(c => (<CourseCard key={c.code} {...c} />))} 
-          </div> )}
+                <div className="list">
+                    <CourseCard
+                        code="CS301"
+                        title="Advanced Web Technologies"
+                        credits={5}
+                        instructor="Dr. Haidar"
+                        level="Advanced"
+                    />
 
-        {/* TASK 3: Separate empty-state demonstration */}
-        <h2>Task 3 - Empty State Example</h2>
+                    <CourseCard
+                        code="CS205"
+                        title="Databases"
+                    />
+                </div>
+            </section>
 
-        {courses2.length === 0 ? (<p className="empty">No courses published yet.</p>) : 
-        (<div className="list">{courses2.map(c => (
-          <CourseCard key={c.code} {...c} />))}
-        </div>)}
-      </main>
-    </>
-  );
+            {/* TASK 3: Rendering using map() */}
+            <section>
+                <h2>Task 3 - Courses Using map()</h2>
+
+                {courses.length === 0 ? (
+                    <p className="empty">
+                        No courses published yet.
+                    </p>
+                ) : (
+                    <div className="list">
+                        {courses.map(c => (
+                            <CourseCard
+                                key={c.code}
+                                {...c}
+                            />
+                        ))}
+                    </div>
+                )}
+            </section>
+
+            {/* TASK 3: Empty state example */}
+            <section>
+                <h2>Task 3 - Empty State</h2>
+
+                {courses2.length === 0 ? (
+                    <p className="empty">
+                        No courses published yet.
+                    </p>
+                ) : (
+                    <div className="list">
+                        {courses2.map(c => (
+                            <CourseCard key={c.code} {...c} />
+                        ))}
+                    </div>
+                )}
+            </section>
+
+            {/* TASK 4: Derived statistics */}
+            <section>
+                <h2>Task 4 - Statistics</h2>
+                <Stats courses={courses} />
+            </section>
+
+            {/* TASK 4: Reusable CourseList */}
+            <section>
+                <h2>Task 4 - Reusable Course List</h2>
+
+                <CourseList courses={courses} />
+            </section>
+        </Layout>
+    );
 }

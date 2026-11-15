@@ -9,14 +9,16 @@ interface LayoutProps {
 export function Layout({ title, children }: LayoutProps) {
     return (
         <>
-            {/* 1. Display Header and pass title */}
+            <Header title={title} />
 
             <main>
-                {/* 2. Display children */}
+                {children}
             </main>
-
-            {/* 3. Create a footer containing:
-                CampusHub · Lebanese University */}
+            
+            <footer className="meta"
+                style={{ textAlign: "center", padding: "1rem" }}>
+                CampusHub · Lebanese University
+            </footer>
         </>
     );
 }

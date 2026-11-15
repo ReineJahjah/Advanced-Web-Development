@@ -21,7 +21,7 @@ export function CourseCard({
             <Badge tone={levelTone[level]}>{level}</Badge>
             <p className="meta">{code}</p>
             <h3>{title}</h3>
-            <p className="meta">{credits} credits · {instructor} · {level}</p>
+            <p className="meta">{credits} credits · {instructor}</p>
             {credits >= 6 && <Badge>Heavy workload</Badge>}
         </article>
     );
