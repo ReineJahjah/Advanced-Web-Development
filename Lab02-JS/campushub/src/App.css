@@ -108,3 +108,65 @@ body {
     text-align: center;
     padding: 32px;
 }
+
+/* Task 4: Enrolled course card */
+
+.card--enrolled {
+    outline: 2px solid #0ea5e9;
+}
+
+/* Enrol button */
+
+.btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    background: #fff;
+    color: #0369a1;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Button on hover */
+
+.btn:hover {
+    background: #e0f2fe;
+}
+
+/* Button when the course is enrolled */
+
+.card--enrolled .btn {
+    background: #0ea5e9;
+    color: #fff;
+}
+
+/* Task 5: Search and filter toolbar */
+
+.toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.toolbar__search {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.toolbar__select {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.empty {
+    color: #64748b;
+    text-align: center;
+    padding: 32px;
+}

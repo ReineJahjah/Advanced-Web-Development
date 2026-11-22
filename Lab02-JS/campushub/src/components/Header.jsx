@@ -1,4 +1,4 @@
-function Header() {
+function Header({count, credits}) {
     return (
         <header className="header">
             <div>
@@ -8,7 +8,7 @@ function Header() {
                 </p>
             </div>
 
-            <span className="header__term">Fall 2026</span>
+             <span className="header__term">{count} courses · {credits} credits</span>
         </header>
     );
 }
