@@ -7,8 +7,6 @@ interface CourseListProps {
 }
 
 export function CourseList({courses, emptyMessage="No courses found"}:CourseListProps){
-    // 1. If courses.length === 0,
-    //    return a paragraph displaying emptyMessage.
     if(courses.length===0){
         return (
             <p className="empty">{emptyMessage}</p>

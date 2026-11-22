@@ -1,16 +1,24 @@
+import { useState } from "react";
 
 import { CourseCard } from "./components/CourseCard";
 import { Layout } from "./components/Layout";
 import { CourseList } from "./components/CourseList";
 import { Stats } from "./components/Stats";
+import { LevelFilter, type LevelOption } from "./components/LevelFilter";
 
 import { courses } from "./data/courses";
 import type { Course } from "./types";
 
-// Empty array for testing the empty state
 const courses2: Course[] = [];
 
 export default function App() {
+
+    // TASK 5: State for the selected level
+    const [level, setLevel] = useState<LevelOption>("All");
+
+    // Filter courses according to the selected level
+    const visible = level === "All" ? courses: courses.filter(c => c.level === level);
+
     return (
         <Layout title="CampusHub">
 
@@ -54,7 +62,7 @@ export default function App() {
                 )}
             </section>
 
-            {/* TASK 3: Empty state example */}
+            {/* TASK 3: Empty-state example */}
             <section>
                 <h2>Task 3 - Empty State</h2>
 
@@ -71,7 +79,7 @@ export default function App() {
                 )}
             </section>
 
-            {/* TASK 4: Derived statistics */}
+            {/* TASK 4: Statistics */}
             <section>
                 <h2>Task 4 - Statistics</h2>
                 <Stats courses={courses} />
@@ -80,8 +88,16 @@ export default function App() {
             {/* TASK 4: Reusable CourseList */}
             <section>
                 <h2>Task 4 - Reusable Course List</h2>
-
                 <CourseList courses={courses} />
+            </section>
+
+            {/* TASK 5: Interactive Level Filter */}
+            <section>
+                <h2>Task 5 - Filter Courses by Level</h2>
+
+                <LevelFilter value={level} onChange={setLevel}/>
+                <Stats courses={visible} />
+                <CourseList courses={visible} emptyMessage={`No ${level} courses this term.`}/>
             </section>
         </Layout>
     );

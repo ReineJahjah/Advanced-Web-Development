@@ -68,3 +68,33 @@ main h2 {
     font-size: 20px;
     margin-bottom: 15px;
 }
+
+/* Task 5: Filter buttons */
+
+.chip {
+    padding: 8px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+    background: #0e7490;
+    color: white;
+}
+
+.chip:focus-visible {
+    outline: 3px solid #22d3ee;
+    outline-offset: 2px;
+}
+
+/* Space between components */
+
+section {
+    margin-bottom: 30px;
+}
+
+section > .meta {
+    margin: 15px 0;
+}
